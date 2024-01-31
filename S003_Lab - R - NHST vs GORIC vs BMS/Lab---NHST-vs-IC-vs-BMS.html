@@ -569,6 +569,79 @@ and that this increase is lower among children from rural areas.</p>
 </details>
 <p> </p>
 </div>
+<div id="exercise-4-the-sky-is-the-limit" class="section level2">
+<h2>Exercise 4: The sky is the limit</h2>
+<p>You can try out evaluating informative hypotheses using other data
+sets, for example one or more from the subfolder ‘data’ on the github
+repository <a href="https://github.com/rebeccakuiper/Tutorials" class="uri">https://github.com/rebeccakuiper/Tutorials</a>.</p>
+<p>You can also look into applying the GORIC(A) and/or bain on other
+types of models (e.g., SEM and (RI-)CLPM). Examples files for the
+GORIC(A) can be found on <a href="https://github.com/rebeccakuiper/Tutorials" class="uri">https://github.com/rebeccakuiper/Tutorials</a>. Notably, in
+’_README.md’ you can find an overview of the (example and tutorial)
+files.</p>
+<p> </p>
+</div>
+<div id="exercise-5-benchmarks" class="section level2">
+<h2>Exercise 5: Benchmarks</h2>
+<p>The GORIC(A) weights and PMPs nicely quantify the support for your
+hypothesis of interest. Even though it is easily interpreted, you may
+have noticed that sometimes it is hard to label the support. In a way,
+we do not want to label it, because cut-off points can invoke
+questionable research practices, but benchmarks do ease the
+interpretation even further. Let us therefore inspect benchmarks for the
+GORIC(A).</p>
+<p>To use the benchmark function, first install and load it:</p>
+<pre class="r"><code># Install and load benchmark function
+if (!require(&quot;devtools&quot;)) install.packages(&quot;devtools&quot;)
+library(devtools)
+install_github(&quot;rebeccakuiper/benchmarks&quot;)
+library(benchmarks)
+# For more information regarding the included functions:
+#?benchmarks
+#?benchmarks_ANOVA</code></pre>
+<p>More information can be found on ‘Guidelines_GORIC-benchmarks’ (html
+or pdf) on the github repository <a href="https://github.com/rebeccakuiper/Tutorials" class="uri">https://github.com/rebeccakuiper/Tutorials</a>.</p>
+<p>When looking at the GORIC results above, how would you label
+them?</p>
+<details>
+<summary>
+<b>Click to see benchmark code</b>
+</summary>
+<p> </p>
+<pre class="r"><code>pop.es &lt;- c(0)
+benchmarks_1c &lt;- benchmarks_ANOVA(goric_sesam, pop.es)
+benchmarks_1c$error.prob.pref.hypo</code></pre>
+<pre><code>## [1] 0.1338962</code></pre>
+<pre class="r"><code>benchmarks_1c$benchmarks.weight</code></pre>
+<pre><code>## $`pop.es = 0`
+##       Sample        5%       35%       50%       65%       95%
+## H1 0.8661038 0.2314983 0.7196067 0.7880296 0.8369776 0.8857286</code></pre>
+<pre class="r"><code>benchmarks_1c$benchmarks.ratios</code></pre>
+<pre><code>## $`pop.es = 0`
+##                     Sample        5%      35%      50%      65%      95%
+## H1 vs. H1         1.000000 1.0000000 1.000000 1.000000 1.000000 1.000000
+## H1 vs. complement 6.468473 0.3012379 2.566425 3.717641 5.134128 7.751093</code></pre>
+</details>
+<!-- &nbsp; -->
+<details>
+<summary>
+<b>Click to show answers</b>
+</summary>
+<p> </p>
+<p>One can see that there is a 13.4% change that ‘H12_sesam’ is not the
+correct hypothesis.</p>
+<p>In the benchmark code above, the null population for which all means
+are equal is used. If you rather check for another null using say a
+small effect size, you can do that. You can either use a specific ANOVA
+effect size (pop.es) in the benchmarks_ANOVA function or specify a set
+of population estimations (pop.est) in the benchmarks function. When
+using the null where all means are equal:</p>
+<p>We can see that our finding is quite extreme under the null (in
+between 65 and 95%). Hence, there is high (compelling) support for
+‘H12_sesam’.</p>
+</details>
+<p> </p>
+</div>
 
 
 

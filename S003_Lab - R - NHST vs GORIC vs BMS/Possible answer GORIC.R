@@ -77,5 +77,44 @@ output
 #In case you want to inspect the order-restricted maximum likelihood estimates (or-mle), inspect:
 output$ormle
 
+# Note
+output$ormle
+output$b.unrestr 
+# complement is in agreement with data;
+# as we could also see from the maximum log likelihood values.
+
+
+
+#####
+
+# Benchmarks GORIC
+
+# Install and load benchmark function
+if (!require("devtools")) install.packages("devtools")
+library(devtools)
+install_github("rebeccakuiper/benchmarks")
+library(benchmarks)
+# For more information regarding the included functions:
+#?benchmarks
+#?benchmarks_ANOVA
+
+#In the benchmark code below, 
+#the null population for which all means are equal is used. 
+#If you rather check for another null using say a small effect size, you can do that. 
+#You can either use a specific ANOVA effect size (pop.es) in the benchmarks_ANOVA function 
+#or specify a set of population estimations (pop.est) in the benchmarks function. 
+#When using the null where all means are equal:
+  
+# Example using the benchmarks_ANOVA function:
+pop.es <- c(0)
+benchmarks_1c <- benchmarks_ANOVA(output, pop.es)
+benchmarks_1c$error.prob.pref.hypo
+# There is a 13.4% change that H12_sesam is not the correct hypothesis.
+benchmarks_1c$benchmarks.weight
+benchmarks_1c$benchmarks.ratios
+# Our finding is quite extreme under the null (in between 65 and 95%).
+# Hence, there is high (compelling) support.
+
+
 ###################################################################################
 
