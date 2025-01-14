@@ -934,6 +934,13 @@ results_c</code></pre>
 ## The order-restricted hypothesis &#39;H1&#39; has 6.97 times more support than its complement.</code></pre>
 <p>The order-restricted hypothesis ‘H1’ has 6.97 times more support than
 its complement. <!-- This is convincing support for H1. --></p>
+<p>Note: The log-likelihood (loglik) weights seem to be quite close.
+This could then indicate that one or more of the inequality constraints
+can be replaced by (about-)equality contraints. Notably, one could
+investigate with the benchmarks function, using ‘output_type = “rlw”’,
+whether the loglik weights indeed are close.<br />
+For more information, see the guidelines
+(‘Guidelines_output_GORIC.html’) and/or the benchmark tutorial on <a href="https://github.com/rebeccakuiper/Tutorials" class="uri">https://github.com/rebeccakuiper/Tutorials</a>.</p>
 </details>
 <p> </p>
 <details>
@@ -965,7 +972,9 @@ goric(fit, hypotheses = list(H1 = H1, H2 = H2, H3 = H3),
 <p>Do the same evaluation as above, but now use the (standardized)
 estimates and their covariance matrix as input to the goric function
 (instead of the lavaan object). E.g., use:</p>
-<p><code>goric(est, VCOV = vcov, hypotheses = list(H1),           #type = &quot;gorica&quot; # default          comparison = &quot;complement&quot;)</code></p>
+<pre class="default"><code>`goric(est, VCOV = vcov, hypotheses = list(H1),  
+       #type = &quot;gorica&quot; # default  
+       comparison = &quot;complement&quot;)`</code></pre>
 <p>with <code>est</code> the (standardized) estimates and
 <code>vcov</code> their covariance matrix.</p>
 </div>

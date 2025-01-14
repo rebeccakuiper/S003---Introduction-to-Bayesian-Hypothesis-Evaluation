@@ -644,7 +644,9 @@ are your conclusions?</p>
 <p>Do the same evaluation as above, but now use the (standardized)
 estimates and their covariance matrix as input to the goric function
 (instead of the lavaan object). E.g., use:</p>
-<p><code>goric(est, VCOV = vcov, hypotheses = list(H1),           #type = &quot;gorica&quot; # default          comparison = &quot;complement&quot;)</code></p>
+<pre class="default"><code>`goric(est, VCOV = vcov, hypotheses = list(H1),  
+       #type = &quot;gorica&quot; # default  
+       comparison = &quot;complement&quot;)`</code></pre>
 <p>with <code>est</code> the (standardized) estimates and
 <code>vcov</code> their covariance matrix.</p>
 </div>
