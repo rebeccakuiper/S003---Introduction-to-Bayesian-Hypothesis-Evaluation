@@ -118,7 +118,8 @@ output$b.unrestr
 # Benchmarks:
 benchmarks_sesam <- benchmark(goric_sesam, model_type = "means", ncpus = 8)
 benchmarks_sesam 
-plot(benchmarks_sesam, x_lim = c(0, 14))
+plot(benchmarks_sesam, x_lim = c(0, 15))
+plot(benchmarks_sesam, log_scale = T)
 # Our finding is very extreme under the null:
 # Namely, our sample value is higher than the 95th percentile under the null. 
 # Hence, there is tremendous support for 'H1_sesam' (cf. 'Guidelines_GORIC-benchmarks').
