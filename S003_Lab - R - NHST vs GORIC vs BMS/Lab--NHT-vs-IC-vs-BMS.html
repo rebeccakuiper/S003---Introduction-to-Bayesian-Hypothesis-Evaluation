@@ -542,16 +542,29 @@ how would you label that (using the benchmark function)?</p>
 </summary>
 <p> </p>
 <pre class="r"><code># If ANOVA model:
-benchmarks_sesam &lt;- benchmark(goric_sesam, model_type = &quot;means&quot;, ncpus = 8)
-benchmarks_sesam 
-plot(benchmarks_sesam) # Options: x_lim = c(&lt;min&gt;, ,max.) and/or log_scale = T
+benchmarks_means &lt;- benchmark(goric_object, model_type = &quot;means&quot;, ncpus = 8)
+benchmarks_means 
+plot(benchmarks_means) 
 # Use &#39;pop_es&#39; to specify own null population(s).   
 #
 ## If ANOVA or other model:
-benchmarks_sesam &lt;- benchmark(goric_sesam, ncpus = 8)
-benchmarks_sesam 
-plot(benchmarks_sesam) # Options: x_lim = c(&lt;min&gt;, ,max.) and/or log_scale = T
+benchmarks_asymp &lt;- benchmark(goric_object, ncpus = 8)
+# &#39;model_type = &quot;asymp&quot;&#39;, the default
+benchmarks_asymp
+plot(benchmarks_asymp) 
 # Use &#39;pop_est&#39; to specify own null population(s).
+#
+# 
+# print() options:
+# output_type = c(&quot;rgw&quot;, &quot;gw&quot;, &quot;rlw&quot;, &quot;ld&quot;, &quot;all&quot;)
+# hypo_rate_threshold = &lt;number&gt;
+#
+# plot() options:
+# output_type = c(&quot;rgw&quot;, &quot;gw&quot;, &quot;rlw&quot;, &quot;ld&quot;)
+# percentiles = NULL 
+# x_lim = c(&lt;min&gt;, &lt;max&gt;) 
+# log_scale = FALSE/TRUE
+#
 #
 # I will use the ANOVA / means benchmarks code.</code></pre>
 </details>

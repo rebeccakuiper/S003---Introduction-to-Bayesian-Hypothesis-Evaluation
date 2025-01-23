@@ -1,7 +1,5 @@
 # S003---Introduction-to-Bayesian-Hypothesis-Evaluation
 
-Note: All files can be run under restriktor version 0.6-10.
-
 
 How to download the files:
 
